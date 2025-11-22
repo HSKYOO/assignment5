@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-export default function UpdateModal({updateStudent}, targetStudent) {
+export default function UpdateModal({updateStudent , targetStudent}) {
     
         const [student, setStudent] = useState(targetStudent || {
             name: "",
@@ -56,7 +56,7 @@ export default function UpdateModal({updateStudent}, targetStudent) {
 
                         <label>Age</label>
                         <input
-                            type="numbert"
+                            type="number"
                             className="form-control mb-2"
                             name="age"
                             value={student.age}
@@ -79,7 +79,7 @@ export default function UpdateModal({updateStudent}, targetStudent) {
                                 type="button"
                                 className="btn btn-primary"
                                 data-bs-dismiss="modal"
-                                onClick={handleChange}
+                                onClick={handleSave}
                             >수정 완료</button>
                         </div>
 
