@@ -1,8 +1,34 @@
-import React from "react";
+import React, {useState} from "react";
 
-function CreateModal() {
+export default function CreateModal({createStudent}) {
+
+    const [student, setStudent] = useState({
+        name: "",
+        major: "",
+        age: "",
+        score: ""
+    });
+    
+    const handleChange = (e) => {
+        const {name, value} = e.target;
+        setStudent({
+            ...student,
+            [name]: value
+        });
+    };
+
+    const handleSave = () => {
+        createStudent(student);
+        setStudent({ 
+            name: "",
+            major: "",
+            age: "",
+            score: ""
+        });
+    };
+
     return (
-        <div className="modal fade" id="CreateModal" tabindex="-1">
+        <div className="modal fade" id="CreateModal" tabIndex="-1">
         <div className="modal-dialog">
             <div className="modal-content">
                 <div className="modal-header">
@@ -12,20 +38,24 @@ function CreateModal() {
                 <div className="modal-body">
                     <div className="mb-3">
                         <label className="form-label">Name</label>
-                        <input type="text" className="form-control" id="add_name"/>
+                        <input type="text" className="form-control" name="name" value={student.name} onChange={handleChange}/>
                     </div>
                     <div className="mb-3">
-                        <label className="form-label">age</label>
-                        <input type="number" className="form-control" id="add_age"/>
+                        <label className="form-label">Age</label>
+                        <input type="number" className="form-control" name="age" value={student.age} onChange={handleChange}/>
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Score</label>
-                        <input type="number" className="form-control" id="add_score"/>
+                        <input type="number" className="form-control" name="score" value={student.score} onChange={handleChange}/>
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Major</label>
+                        <input type="text" className="form-control" name="major" value={student.major} onChange={handleChange} placeholder="Ex: CS, EE"/>
                     </div>
                 </div>
                 <div className="modal-footer">
                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">닫기</button>  
-                    <button type="button" className="btn btn-primary" id="btn_save_add">저장하기</button>
+                    <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={handleSave}>저장하기</button>
                 </div>
             </div>
         </div>
