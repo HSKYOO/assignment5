@@ -1,0 +1,79 @@
+[
+  {
+    "id": "1",
+    "name": "Kiwi",
+    "age": 22,
+    "score": 65,
+    "major": "Computer Science"
+  },
+  {
+    "id": "2",
+    "name": "Tom",
+    "age": 18,
+    "score": 74,
+    "major": "Electrical Eng"
+  },
+  {
+    "id": "3",
+    "name": "Jack",
+    "age": 22,
+    "score": 55,
+    "major": "Mechanical Eng"
+  },
+  {
+    "id": "4",
+    "name": "Nilu",
+    "age": 17,
+    "score": 88,
+    "major": "Computer Science"
+  },
+  {
+    "id": "5",
+    "name": "Kaid",
+    "age": 28,
+    "score": 72,
+    "major": "Business"
+  },
+  {
+    "id": "6",
+    "name": "Rio",
+    "age": 33,
+    "score": 66,
+    "major": "Industrial Design"
+  },
+  {
+    "id": "7",
+    "name": "Tom",
+    "age": 18,
+    "score": 74,
+    "major": "Electrical Eng"
+  },
+  {
+    "id": "8",
+    "name": "Nelson",
+    "age": 48,
+    "score": 90,
+    "major": "Computer Science"
+  },
+  {
+    "id": "9",
+    "name": "Chad",
+    "age": 38,
+    "score": 90,
+    "major": "Physical Edu"
+  },
+  {
+    "id": "10",
+    "name": "Ryu",
+    "age": 21,
+    "score": 93,
+    "major": "Data Science"
+  },
+  {
+    "id": "11",
+    "name": "Good",
+    "age": 33,
+    "score": 48,
+    "major": "Psychology"
+  }
+]
