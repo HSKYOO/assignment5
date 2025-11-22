@@ -1,38 +1,91 @@
-import React from "react";
+import React, {useState} from "react";
 
-function UpdateModal() {
+export default function UpdateModal({updateStudent}, targetStudent) {
+    
+        const [student, setStudent] = useState(targetStudent || {
+            name: "",
+            major: "",
+            age: "",
+            score: ""   
+        });
+
+        const handleChange = (e) => {
+            const { name, value} = e.target;
+
+            setStudent({
+                ...student,
+                [name]: value
+            });
+        };
+
+        const handleSave = () => {
+            updateStudent(student.id, student);
+        };
+       
     return (
-       <div className="modal fade" id="editModal" tabindex="-1">
-        <div className="modal-dialog">
-            <div className="modal-content">
-                <div className="modal-header">
-                    <h5 className="modal-title">학생 정보 수정</h5>
-                    <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div className="modal-body">
-                    <div className="mb-3">
-                        <label className="form-label">ID (필수!)</label>
-                        <input type="text" className="form-control" id="edit_id"/>
+        <div className="modal fade" id="UpdateModal">
+            <div className="modal-dialog">
+                <div className="modal-content">
+
+                    <div className="modal-header">
+                        <h5 className="modal-title">학생 정보 수정</h5>
+                        <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
                     </div>
-                    <div class="mb-3">
-                        <label className="form-label">Name</label>
-                        <input type="text" className="form-control" id="edit_name"/>
+
+                    <div className="modal-body">
+                        <label>ID</label>
+                        <input type="text" className="form-control mb-2" value={student.id} disabled />
+
+                        <label>Name</label>
+                        <input
+                            type="text"
+                            className="form-control mb-2"
+                            name="name"
+                            value={student.name}
+                            onChange={handleChange}
+                        />
+
+                        <label>Major</label>
+                        <input
+                            type="text"
+                            className="form-control mb-2"
+                            name="major"
+                            value={student.major}
+                            onChange={handleChange}
+                        />
+
+                        <label>Age</label>
+                        <input
+                            type="numbert"
+                            className="form-control mb-2"
+                            name="age"
+                            value={student.age}
+                            onChange={handleChange}
+                        />
+
+                        <label>Score</label>
+                        <input
+                            type="number"
+                            className="form-control mb-2"
+                            name="score"
+                            value={student.score}
+                            onChange={handleChange}
+                        />
+                        
+                        {/* 수정버튼 */}
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                            <button
+                                type="button"
+                                className="btn btn-primary"
+                                data-bs-dismiss="modal"
+                                onClick={handleChange}
+                            >수정 완료</button>
+                        </div>
+
                     </div>
-                    <div class="mb-3">
-                        <label className="form-label">Age</label>
-                        <input type="number" className="form-control" id="edit_age"/>
-                    </div>
-                    <div className="mb-3">
-                        <label className="form-label">Score</label>
-                        <input type="number" className="form-control" id="edit_score"/>
-                    </div>
-                </div>
-                <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">닫기</button>  
-                    <button type="button" className="btn btn-primary" id="btn_save_edit">수정하기</button>
                 </div>
             </div>
         </div>
-    </div>
     );
 }
